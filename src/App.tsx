@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Layout/Navbar';
 import BodyContainer from './Layout/BodyContainer';
+import SearchFiltering from './Components/SearchFiltering';
 import './App.css';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <div className="h-screen bg-gray-50">
       <Navbar />
       <BodyContainer>
-        <h1>Input & Filtering</h1>
+        <SearchFiltering />
       </BodyContainer>
       <BodyContainer>
         <div className="p-8">
