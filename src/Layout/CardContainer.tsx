@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import CountryCard from '../Components/CountryCard';
 
 const CardContainer = () => {
   const { isLoading, error, data } = useQuery('countryData', async () => {
@@ -12,21 +13,20 @@ const CardContainer = () => {
       {isLoading && <h1>Loading...</h1>}
       {error && <p>Broke</p>}
       {data && (
-        <div className="grid grid-cols-4 gap-40">
-          {data.map((country: any) => (
-            <div className="shadow rounded-lg" key={country.alpha2Code}>
-              <div>
-                <img src={country.flag} alt={country.name} />
-              </div>
-              <div className="p-4">
-                <h1>{country.name}</h1>
-              </div>
-            </div>
+        <div className="grid grid-cols-4 gap-x-32 gap-y-16">
+          {data.map((c: any) => (
+            <CountryCard
+              key={c.alpha2Code}
+              countryName={c.countryName}
+              capital={c.capital}
+              region={c.region}
+              population={c.population.toLocaleString()}
+              flag={c.flag}
+            />
           ))}
         </div>
       )}
     </div>
   );
 };
-
 export default CardContainer;
