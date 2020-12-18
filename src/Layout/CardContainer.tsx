@@ -17,7 +17,7 @@ const CardContainer = () => {
           {data.map((c: any) => (
             <CountryCard
               key={c.alpha2Code}
-              countryName={c.countryName}
+              countryName={c.name}
               capital={c.capital}
               region={c.region}
               population={c.population.toLocaleString()}
