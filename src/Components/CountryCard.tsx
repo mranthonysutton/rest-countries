@@ -16,7 +16,10 @@ const CountryCard = ({
   flag
 }: CardCountryProps) => {
   return (
-    <div className="shadow rounded-lg border" key={key}>
+    <div
+      className="shadow rounded-lg border hover:shadow-md cursor-pointer"
+      key={key}
+    >
       <div>
         <img src={flag} alt={countryName} className="rounded" />
       </div>
