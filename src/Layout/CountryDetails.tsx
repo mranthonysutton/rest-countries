@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { useParams, Link } from 'react-router-dom';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { UseQueryTypes, URLParamTypes, FilteredCountryTypes } from '../types';
+import { formatCommaList } from '../utils/formatCommaList';
 
 const CountryDetails = (props: any) => {
   const { countryCode }: URLParamTypes = useParams();
@@ -10,12 +11,17 @@ const CountryDetails = (props: any) => {
 
   let filteredCountry: any;
   let borderedCountries: Array<FilteredCountryTypes> = [];
+  let filteredCurrencies: Array<string> = [];
+  let filteredLanguages: Array<string> = [];
 
-  if (data)
+  if (data) {
     [filteredCountry] = data.filter((c: any) => c.alpha2Code === countryCode);
+  }
 
   if (filteredCountry) {
-    console.log(filteredCountry);
+    filteredCurrencies = formatCommaList(filteredCountry.currencies);
+    filteredLanguages = formatCommaList(filteredCountry.languages);
+    console.log(filteredLanguages);
     filteredCountry.borders.forEach((i: string) => {
       data.forEach((c: any) => {
         if (c.alpha3Code === i)
@@ -47,7 +53,7 @@ const CountryDetails = (props: any) => {
               <img
                 src={filteredCountry.flag}
                 alt={filteredCountry.name}
-                className="shadow border"
+                className="shadow border rounded-lg"
               />
             </div>
             <div className="w-2/4 py-8 px-2 flex flex-col justify-center pl-8">
@@ -55,7 +61,7 @@ const CountryDetails = (props: any) => {
                 {filteredCountry.name}
               </h3>
               <div className="flex justify-between">
-                <div className="pr-8 mb-20">
+                <div className="mb-20">
                   <p>
                     <span className="font-semibold">Native Name: </span>
                     {filteredCountry.nativeName}
@@ -75,6 +81,24 @@ const CountryDetails = (props: any) => {
                   <p>
                     <span className="font-semibold">Capital: </span>
                     {filteredCountry.capital}
+                  </p>
+                </div>
+                <div className="mb-20">
+                  <p>
+                    <span className="font-semibold">Top Level Domain: </span>
+                    {filteredCountry.topLevelDomain[0]}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Currencies: </span>
+                    {filteredCurrencies?.map((curr: any, index: number) => (
+                      <span key={index}>{curr}</span>
+                    ))}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Languages: </span>
+                    {filteredLanguages?.map((curr: any, index: number) => (
+                      <span key={index}>{curr}</span>
+                    ))}
                   </p>
                 </div>
               </div>
