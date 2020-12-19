@@ -21,3 +21,8 @@ export type FilteredCountryTypes = {
   countryCode: string;
   countryName: string;
 };
+
+export type SearchFilterOptions = {
+  searchTerm?: string;
+  region?: string;
+};

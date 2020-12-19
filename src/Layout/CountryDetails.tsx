@@ -53,7 +53,7 @@ const CountryDetails = (props: any) => {
               <img
                 src={filteredCountry.flag}
                 alt={filteredCountry.name}
-                className="shadow border rounded-lg"
+                className="shadow border rounded-lg w-full"
               />
             </div>
             <div className="w-full lg:w-2/4 py-8 px-2 flex flex-col justify-center pl-8">
