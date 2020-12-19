@@ -10,7 +10,11 @@ const CountryCard = ({
   return (
     <div className="shadow rounded-lg border hover:shadow-md cursor-pointer">
       <div>
-        <img src={flag} alt={countryName} className="rounded" />
+        <img
+          src={flag}
+          alt={countryName}
+          className="rounded h-52 object-cover w-full"
+        />
       </div>
       <div className="p-4">
         <p className="font-bold pb-4">{countryName}</p>

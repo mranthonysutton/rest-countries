@@ -83,7 +83,7 @@ const CountryDetails = (props: any) => {
                     {filteredCountry.capital}
                   </p>
                 </div>
-                <div className="mb-8 lg:mb-20">
+                <div className="md:ml-2 ml-0 mb-8 lg:mb-20">
                   <p>
                     <span className="font-semibold">Top Level Domain: </span>
                     {filteredCountry.topLevelDomain[0]}
