@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import axios from 'axios';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const queryClient = new QueryClient();
+const defaultQueryFn = async () => {
+  const { data }: any = await axios.get('https://restcountries.eu/rest/v2/all');
+  return data;
+};
+
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { queryFn: defaultQueryFn } }
+});
 
 ReactDOM.render(
   <React.StrictMode>

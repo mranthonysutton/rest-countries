@@ -1,14 +1,6 @@
-type CardCountryProps = {
-  key: string;
-  countryName: string;
-  population: string | number;
-  region: string;
-  capital: string;
-  flag: string;
-};
+import { CardCountryProps } from '../types';
 
 const CountryCard = ({
-  key,
   countryName,
   population,
   region,
@@ -16,10 +8,7 @@ const CountryCard = ({
   flag
 }: CardCountryProps) => {
   return (
-    <div
-      className="shadow rounded-lg border hover:shadow-md cursor-pointer"
-      key={key}
-    >
+    <div className="shadow rounded-lg border hover:shadow-md cursor-pointer">
       <div>
         <img src={flag} alt={countryName} className="rounded" />
       </div>

@@ -1,14 +1,11 @@
 import { useQuery } from 'react-query';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CountryCard from '../Components/CountryCard';
 import BodyContainer from '../Layout/BodyContainer';
+import { UseQueryTypes } from '../types';
 
 const CardContainer = () => {
-  const { isLoading, error, data } = useQuery('countryData', async () => {
-    const res = await axios.get('https://restcountries.eu/rest/v2/all');
-    return res.data;
-  });
+  const { isLoading, error, data }: UseQueryTypes = useQuery('countryData');
 
   return (
     <BodyContainer>
