@@ -17,7 +17,7 @@ const CountryCard = ({
         />
       </div>
       <div className="p-4">
-        <p className="font-bold pb-4">{countryName}</p>
+        <p className="font-bold pb-4 text-2xl">{countryName}</p>
         <div>
           <p>
             <span className="font-semibold mr-2">Population:</span>

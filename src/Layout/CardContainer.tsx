@@ -13,7 +13,7 @@ const CardContainer = () => {
         {isLoading && <h1>Loading...</h1>}
         {error && <p>Broke</p>}
         {data && (
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-x-16 gap-y-16">
+          <div className="grid w-full md:w-auto md:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-x-16 gap-y-16">
             {data.map((c: any) => (
               <Link to={`/${c.alpha2Code}/${c.name}`} key={c.alpha2Code}>
                 <CountryCard
