@@ -15,9 +15,8 @@ const CardContainer = () => {
         {data && (
           <div className="grid md:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-x-16 gap-y-16">
             {data.map((c: any) => (
-              <Link to={`/${c.alpha2Code}/${c.name}`}>
+              <Link to={`/${c.alpha2Code}/${c.name}`} key={c.alpha2Code}>
                 <CountryCard
-                  key={c.alpha2Code}
                   countryName={c.name}
                   capital={c.capital}
                   region={c.region}

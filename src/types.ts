@@ -16,3 +16,8 @@ export type URLParamTypes = {
   countryCode: string;
   countryName: string;
 };
+
+export type FilteredCountryTypes = {
+  countryCode: string;
+  countryName: string;
+};
