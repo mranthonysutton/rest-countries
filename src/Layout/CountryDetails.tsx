@@ -48,20 +48,20 @@ const CountryDetails = (props: any) => {
       {error && <h1>Error obtaining data...</h1>}
       {data && filteredCountry && (
         <BodyContainer>
-          <div className="flex justify-between">
-            <div className="w-2/4">
+          <div className="flex flex-col lg:flex-row justify-between">
+            <div className="w-full lg:w-2/4">
               <img
                 src={filteredCountry.flag}
                 alt={filteredCountry.name}
                 className="shadow border rounded-lg"
               />
             </div>
-            <div className="w-2/4 py-8 px-2 flex flex-col justify-center pl-8">
+            <div className="w-full lg:w-2/4 py-8 px-2 flex flex-col justify-center pl-8">
               <h3 className="text-2xl font-extrabold mb-8">
                 {filteredCountry.name}
               </h3>
-              <div className="flex justify-between">
-                <div className="mb-20">
+              <div className="flex flex-col lg:flex-row justify-between">
+                <div className="mb-8 lg:mb-20">
                   <p>
                     <span className="font-semibold">Native Name: </span>
                     {filteredCountry.nativeName}
@@ -83,7 +83,7 @@ const CountryDetails = (props: any) => {
                     {filteredCountry.capital}
                   </p>
                 </div>
-                <div className="mb-20">
+                <div className="mb-8 lg:mb-20">
                   <p>
                     <span className="font-semibold">Top Level Domain: </span>
                     {filteredCountry.topLevelDomain[0]}
@@ -105,7 +105,9 @@ const CountryDetails = (props: any) => {
               <div>
                 {borderedCountries.length > 0 && (
                   <div className="flex flex-wrap justify-start">
-                    <p className="font-semibold py-1 mr-2">Border Countries:</p>
+                    <p className="w-full lg:w-auto font-semibold py-1 mr-2">
+                      Border Countries:
+                    </p>
                     {borderedCountries.map((bc: FilteredCountryTypes) => (
                       <Link
                         to={`/${bc.countryCode}/${bc.countryName}`}
