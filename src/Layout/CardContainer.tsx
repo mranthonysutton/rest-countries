@@ -19,9 +19,6 @@ const CardContainer = (props: any) => {
     (data && props.filterSettings.region.length > 0) ||
     props.filterSettings.searchTerm.length > 0
   ) {
-    let filteredRegion: Array<any> = [];
-    let filteredSearch: Array<any> = [];
-
     // Just the region is filled out
     if (
       props.filterSettings.region.length > 0 &&
