@@ -11,6 +11,9 @@ import { UseQueryTypes } from '../types';
 const CardContainer = (props: any) => {
   const { isLoading, error, data }: UseQueryTypes = useQuery('countryData');
   let filteredData: Array<any> = [];
+  const isSearching =
+    props.filterSettings.region.length > 0 ||
+    props.filterSettings.searchTerm.length > 0;
 
   if (
     (data && props.filterSettings.region.length > 0) ||
@@ -49,7 +52,10 @@ const CardContainer = (props: any) => {
     }
   }
 
-  console.log(filteredData);
+  const dataToFilter =
+    data?.length > 0 && filteredData.length === 0 && !isSearching
+      ? data
+      : filteredData;
 
   return (
     <BodyContainer>
@@ -58,7 +64,12 @@ const CardContainer = (props: any) => {
         {error && <p>Broke</p>}
         {data && (
           <div className="grid w-full md:w-auto md:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-x-16 gap-y-16">
-            {data.map((c: any) => (
+            {dataToFilter.length === 0 && (
+              <div className="w-full border border-red-300 rounded-lg p-4 bg-red-300 text-red-500 font-semibold">
+                <p>Unable to find a country with the search parameters...</p>
+              </div>
+            )}
+            {dataToFilter.map((c: any) => (
               <Link to={`/${c.alpha2Code}/${c.name}`} key={c.alpha2Code}>
                 <CountryCard
                   countryName={c.name}
