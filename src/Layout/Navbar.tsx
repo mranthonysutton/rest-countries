@@ -1,7 +1,28 @@
 import { Link } from 'react-router-dom';
-import { HiOutlineMoon } from 'react-icons/hi';
+import { HiOutlineMoon, HiOutlineSun } from 'react-icons/hi';
+import { useDarkMode } from '../utils/useDarkMode';
+
+const lightModeToggle = (
+  <>
+    <HiOutlineSun className="mr-2" />
+    <p>Light Mode</p>
+  </>
+);
+
+const darkModeToggle = (
+  <>
+    <HiOutlineMoon className="mr-2" />
+    <p>Dark Mode</p>
+  </>
+);
 
 const Navbar = () => {
+  const [darkMode, setDarkMode] = useDarkMode();
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <div className="border-b-4 min-w-full py-4 bg-white">
       <div className="container mx-auto flex justify-between">
@@ -10,9 +31,11 @@ const Navbar = () => {
             <h1 className="font-extrabold text-xl">Where in the world?</h1>
           </Link>
         </div>
-        <div className="cursor-pointer flex items-center font-semibold">
-          <HiOutlineMoon className="mr-2" />
-          <p>Dark Mode</p>
+        <div
+          className="cursor-pointer flex items-center font-semibold"
+          onClick={toggleDarkMode}
+        >
+          {!darkMode ? darkModeToggle : lightModeToggle}
         </div>
       </div>
     </div>
