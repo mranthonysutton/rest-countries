@@ -3,6 +3,9 @@ import { HiSearch } from 'react-icons/hi';
 import BodyContainer from '../Layout/BodyContainer';
 
 const SearchFiltering = (props: any) => {
+  const {filterOptions, searchValue} = props
+  const searchValueDisplay = filterOptions?.searchTerm ? filterOptions.searchTerm : searchValue
+
   return (
     <BodyContainer>
       <div className="flex flex-col md:flex-row justify-between">
@@ -11,7 +14,7 @@ const SearchFiltering = (props: any) => {
             <HiSearch className="text-gray-500 dark:text-white" />
           </span>
           <input
-            value={props.filterOptions?.searchTerm}
+            value={searchValueDisplay}
             name="searchTerm"
             onChange={props.changeValue}
             type="text"
@@ -24,7 +27,7 @@ const SearchFiltering = (props: any) => {
             <select
               className="bg-transparent rounded-lg shadow border-none focus:ring-0 dark:text-white appearance-none"
               name="region"
-              value={props.filterOptions?.region}
+              value={props?.searchValue}
               onChange={props.changeValue}
             >
               <option value="">All Regions</option>

@@ -21,7 +21,6 @@ const CountryDetails = (props: any) => {
   if (filteredCountry) {
     filteredCurrencies = formatCommaList(filteredCountry.currencies);
     filteredLanguages = formatCommaList(filteredCountry.languages);
-    console.log(filteredLanguages);
     filteredCountry.borders.forEach((i: string) => {
       data.forEach((c: any) => {
         if (c.alpha3Code === i)
