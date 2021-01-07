@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border-b-4 min-w-full py-4 bg-veryLightGray dark:bg-darkBlue dark:text-white">
+    <div className="border-b-4 dark:border-transparent min-w-full py-4 bg-veryLightGray dark:bg-darkBlue dark:text-white">
       <div className="container mx-auto flex justify-between">
         <div>
           <Link to="/">

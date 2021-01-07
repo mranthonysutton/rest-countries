@@ -40,3 +40,7 @@
     transform: rotate(360deg);
   }
 }
+
+.dark {
+  background-color: hsl(207, 26%, 17%);
+}
