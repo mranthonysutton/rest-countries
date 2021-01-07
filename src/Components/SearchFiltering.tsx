@@ -16,7 +16,7 @@ const SearchFiltering = (props: any) => {
             onChange={props.changeValue}
             type="text"
             placeholder="Search for a country..."
-            className="py-2 pl-8 w-full rounded-lg border-none focus:ring-0"
+            className="py-2 pl-8 w-full rounded-lg border-none focus:ring-0 dark:bg-darkBlue dark:text-white dark:focus-ring-0 outline-none"
           />
         </div>
         <div className="mt-6 md:mt-0">

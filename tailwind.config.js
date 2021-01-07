@@ -1,8 +1,14 @@
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        veryLightGray: 'hsl(0, 0%, 98%)',
+        darkModeBackground: 'hsl(207, 26%, 17%)',
+        darkBlue: 'hsl(209, 23%, 22%)'
+      }
+    },
     minHeight: {
       '1/2': '50%'
     },

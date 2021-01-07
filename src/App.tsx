@@ -17,7 +17,7 @@ function App() {
     setFilterOptions({ ...filterOptions, [evt.target.name]: evt.target.value });
   };
   return (
-    <div className="h-screen bg-gray-50">
+    <div className="h-screen bg-gray-50 dark:bg-darkModeBackground dark:text-white">
       <Navbar />
       <Route exact path="/">
         <SearchFiltering changeValue={addFilterOptions} />
