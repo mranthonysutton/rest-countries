@@ -62,7 +62,7 @@ const CardContainer = (props: any) => {
         {data && (
           <div className="grid w-full md:w-auto md:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-x-16 gap-y-16">
             {dataToFilter.length === 0 && (
-              <div className="w-full border border-red-300 rounded-lg p-4 bg-red-300 text-red-500 font-semibold">
+              <div className="w-full shadow border dark:border-transparent border-red-100 rounded-lg p-4 bg-red-100 text-red-600 font-semibold">
                 <p>Unable to find a country with the search parameters...</p>
               </div>
             )}
