@@ -13,7 +13,7 @@ const CountryCard = ({
         <img
           src={flag}
           alt={countryName}
-          className="rounded h-52 object-cover w-full"
+          className="dark:border-0 rounded h-52 object-cover w-full"
         />
       </div>
       <div className="p-4">

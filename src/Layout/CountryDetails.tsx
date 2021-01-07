@@ -36,7 +36,7 @@ const CountryDetails = (props: any) => {
   return (
     <BodyContainer>
       <button
-        className="flex items-center text-lg justify-center shadow rounded-lg py-2 w-32"
+        className="flex items-center text-lg justify-center shadow rounded-lg py-2 w-32 dark:bg-darkBlue"
         onClick={() => props.history.push('/')}
       >
         <span className="pr-1">
@@ -53,7 +53,7 @@ const CountryDetails = (props: any) => {
               <img
                 src={filteredCountry.flag}
                 alt={filteredCountry.name}
-                className="shadow border rounded-lg w-full"
+                className="shadow border dark:border-transparent rounded-lg w-full"
               />
             </div>
             <div className="w-full lg:w-2/4 py-8 px-2 flex flex-col justify-center pl-8">
@@ -113,7 +113,7 @@ const CountryDetails = (props: any) => {
                         to={`/${bc.countryCode}/${bc.countryName}`}
                         key={bc.countryCode}
                       >
-                        <p className="border px-2 py-1 shadow mb-2 mr-2 cursor-pointer rounded-lg">
+                        <p className="border dark:border-transparent dark:bg-darkBlue px-2 py-1 shadow mb-2 mr-2 cursor-pointer rounded-lg">
                           {bc.countryName}
                         </p>
                       </Link>
