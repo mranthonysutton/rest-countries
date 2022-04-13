@@ -19,17 +19,23 @@ const CountryDetails = (props: any) => {
   }
 
   if (filteredCountry) {
-    filteredCurrencies = formatCommaList(filteredCountry.currencies);
-    filteredLanguages = formatCommaList(filteredCountry.languages);
-    filteredCountry.borders.forEach((i: string) => {
-      data.forEach((c: any) => {
-        if (c.alpha3Code === i)
-          borderedCountries.push({
-            countryName: c.name,
-            countryCode: c.alpha2Code
-          });
+    if (filteredCurrencies)
+      filteredCurrencies = formatCommaList(filteredCountry.currencies);
+
+    if (filteredLanguages)
+      filteredLanguages = formatCommaList(filteredCountry.languages);
+
+    if (filteredCountry.borders) {
+      filteredCountry.borders.forEach((i: string) => {
+        data.forEach((c: any) => {
+          if (c.alpha3Code === i)
+            borderedCountries.push({
+              countryName: c.name,
+              countryCode: c.alpha2Code,
+            });
+        });
       });
-    });
+    }
   }
 
   return (

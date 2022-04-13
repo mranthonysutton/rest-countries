@@ -9,12 +9,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const defaultQueryFn = async () => {
-  const { data }: any = await axios.get('https://restcountries.eu/rest/v2/all');
+  //const { data }: any = await axios.get('https://restcountries.eu/rest/v2/all');
+  const { data }: any = await axios.get('https://restcountries.com/v2/all');
   return data;
 };
 
 const queryClient = new QueryClient({
-  defaultOptions: { queries: { queryFn: defaultQueryFn } }
+  defaultOptions: { queries: { queryFn: defaultQueryFn } },
 });
 
 ReactDOM.render(
