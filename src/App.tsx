@@ -20,7 +20,11 @@ function App() {
     <div className="h-auto bg-gray-50 pb-8 dark:bg-darkModeBackground dark:text-white">
       <Navbar />
       <Route exact path="/">
-        <SearchFiltering changeValue={addFilterOptions} searchValue={filterOptions?.searchTerm}/>
+        <SearchFiltering
+          changeValue={addFilterOptions}
+          searchValue={filterOptions?.searchTerm}
+          regionValue={filterOptions?.region}
+        />
 
         <CardContainer filterSettings={filterOptions} />
       </Route>

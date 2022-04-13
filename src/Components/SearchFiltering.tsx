@@ -3,8 +3,7 @@ import { HiSearch } from 'react-icons/hi';
 import BodyContainer from '../Layout/BodyContainer';
 
 const SearchFiltering = (props: any) => {
-  const {filterOptions, searchValue} = props
-  const searchValueDisplay = filterOptions?.searchTerm ? filterOptions.searchTerm : searchValue
+  const { changeValue, searchValue, regionValue } = props;
 
   return (
     <BodyContainer>
@@ -14,9 +13,9 @@ const SearchFiltering = (props: any) => {
             <HiSearch className="text-gray-500 dark:text-white" />
           </span>
           <input
-            value={searchValueDisplay}
+            value={searchValue}
             name="searchTerm"
-            onChange={props.changeValue}
+            onChange={changeValue}
             type="text"
             placeholder="Search for a country..."
             className="py-2 pl-8 w-full rounded-lg border-none outline-none focus:ring-0 dark:bg-darkBlue dark:text-white dark:focus-ring-0 dark:placeholder-white"
@@ -27,8 +26,8 @@ const SearchFiltering = (props: any) => {
             <select
               className="bg-transparent rounded-lg shadow border-none focus:ring-0 dark:text-white appearance-none"
               name="region"
-              value={props?.searchValue}
-              onChange={props.changeValue}
+              value={regionValue}
+              onChange={changeValue}
             >
               <option value="">All Regions</option>
               <option value="Africa">Africa</option>
